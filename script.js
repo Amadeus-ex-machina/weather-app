@@ -23,7 +23,7 @@ let weather = '';
 
 let units = 'imperial';
 
-let geocodeUrl = () => `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=${limit}&appid=${apiKey}`;
+let geocodeUrl = () => `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=${limit}&appid=${apiKey}`;
 let weatherUrl = () => `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${apiKey}&units=${units}`;
 
 async function requestCoords() {
