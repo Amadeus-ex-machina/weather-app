@@ -4,6 +4,9 @@ body {
     background-color: rgb(176, 223, 255);
     font-family: Roboto;
     margin: 0;
+
+    /* Prevents footer from covering page content. */
+    margin-bottom: 5rem;
 }
 
 .header {
@@ -35,8 +38,11 @@ input {
     width: 100%;
     background-color: rgb(1, 85, 141);
     text-align: center;
-    line-height: 5rem;
     height: 5rem;
+
+    /* Problems here on zoom-in */
+    line-height: 5rem;
+    overflow: hidden;
 }
 
 .tempVal {
