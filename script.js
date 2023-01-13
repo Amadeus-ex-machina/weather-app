@@ -1,5 +1,8 @@
 
 
+// Fix enter key to make submit box work.
+// Remove button.
+
 const apiKey = '1ed6d5923b682c3be47b72784d5242e9';
 
 let cityName = 'Seoul';
@@ -59,6 +62,7 @@ async function requestWeather() {
 }
 
 const main = document.querySelector('.main');
+const weatherInfo = document.querySelector('.weatherInfo');
 
 async function forecast() {
     // await requestCoords();
@@ -66,68 +70,74 @@ async function forecast() {
     console.log('Coords', await requestCoords());
     console.log('Weather', await requestWeather());
 
+    // Show city.
+    const cityDiv = document.createElement('div');
+    cityDiv.classList.add('city');
+
+    let cityName = document.getElementById('cityNameInput').value;
+    cityName = cityName.toUpperCase();
+    cityDiv.textContent = cityName;
+    main.appendChild(cityDiv);
+
     // Show temp.
     const tempDiv = document.createElement('div');
-    tempDiv.textContent = 'Temp: ' + temp;
+    tempDiv.classList.add('tempVal');
+    tempDiv.textContent = Math.round(temp) + '°F';
     main.appendChild(tempDiv);
-
-    // Show windspeed.
-    const windSpeedDiv = document.createElement('div');
-    windSpeedDiv.textContent = 'Wind speed: ' + windSpeed;
-    main.appendChild(windSpeedDiv);
-
-    // Show temp max.
-    const tempMaxDiv = document.createElement('div');
-    tempMaxDiv.textContent = 'Temp max: ' + tempMax;
-    main.appendChild(tempMaxDiv);
-
-    // Show temp min.
-    const tempMinDiv = document.createElement('div');
-    tempMinDiv.textContent = 'Temp min: ' + tempMin;
-    main.appendChild(tempMinDiv);
-
-    // Show feels like.
-    const feelsLikeDiv = document.createElement('div');
-    feelsLikeDiv.textContent = 'Feels like: ' + feelsLike;
-    main.appendChild(feelsLikeDiv);
-
-    // Show humidity.
-    const humidityDiv = document.createElement('div');
-    humidityDiv.textContent = 'Humidity: ' + humidity;
-    main.appendChild(humidityDiv);
-
-    // Show pressure.
-    const pressureDiv = document.createElement('div');
-    pressureDiv.textContent = 'Pressure: ' + pressure;
-    main.appendChild(pressureDiv);
 
     // Show weather.
     const weatherDiv = document.createElement('div');
-    weatherDiv.textContent = 'Weather: ' + weather;
+    weatherDiv.textContent = weather;
     main.appendChild(weatherDiv);
+
+
+    // SUPPLEMENTARY WEATHER INFO BELOW:
+
+    // Show temp max.
+    const tempMaxDiv = document.createElement('div');
+    tempMaxDiv.textContent = 'Temp max: ' + Math.round(tempMax) + '°F';
+    weatherInfo.appendChild(tempMaxDiv);
+
+    // Show temp min.
+    const tempMinDiv = document.createElement('div');
+    tempMinDiv.textContent = 'Temp min: ' + Math.round(tempMin) + '°F';
+    weatherInfo.appendChild(tempMinDiv);
+
+    // Show feels like.
+    const feelsLikeDiv = document.createElement('div');
+    feelsLikeDiv.textContent = 'Feels like: ' + Math.round(feelsLike) + '°F';
+    weatherInfo.appendChild(feelsLikeDiv);
+
+    // Show windspeed.
+    const windSpeedDiv = document.createElement('div');
+    windSpeedDiv.textContent = 'Wind speed: ' + Math.round(windSpeed) + 'mph';
+    weatherInfo.appendChild(windSpeedDiv);
+
+    // Show humidity.
+    const humidityDiv = document.createElement('div');
+    humidityDiv.textContent = 'Humidity: ' + humidity + '%';
+    weatherInfo.appendChild(humidityDiv);
+
+    // Show pressure.
+    const pressureDiv = document.createElement('div');
+    pressureDiv.textContent = 'Pressure: ' + pressure + 'hPa';
+    weatherInfo.appendChild(pressureDiv);
+
 }
 
-
 const btn = document.querySelector('#getWeatherButton');
-btn.addEventListener('click', () => {
-
-    // Clear main of divs.
-    while (main.firstChild) {
-        main.removeChild(main.firstChild);
-    }
-
-    cityName = document.getElementById('cityNameInput').value;
-    console.log(cityName);
-    forecast();
-});
 
 // This was difficult, complicated way to make form work on enter.
 function forecastSubmit(e) {
     e.preventDefault();
 
-    // Clear main of divs.
+    // Clear divs.
     while (main.firstChild) {
         main.removeChild(main.firstChild);
+    }
+
+    while (weatherInfo.firstChild) {
+        weatherInfo.removeChild(weatherInfo.firstChild);
     }
 
     cityName = document.getElementById('cityNameInput').value;
@@ -136,4 +146,6 @@ function forecastSubmit(e) {
 }
 
 const form = document.getElementById('form');
+
 form.addEventListener('submit', forecastSubmit);
+btn.addEventListener('click', forecastSubmit);

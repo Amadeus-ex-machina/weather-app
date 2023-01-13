@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;900&display=swap');
+
+body {
+    background-color: rgb(176, 223, 255);
+    font-family: Roboto;
+    margin: 0;
+}
+
+.header {
+    /* background-color: green; */
+    text-align: center;
+}
+
+.headerTitle {
+    font-size: 60px;
+    text-align: center;
+    /* background-color: purple; */
+    padding: 1rem;
+}
+
+.city {
+    font-size: 48px;
+}
+
+input {
+    outline: none;
+    border: none;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(1, 85, 141);
+    text-align: center;
+    line-height: 5rem;
+    height: 5rem;
+}
+
+.tempVal {
+    font-size: 72px;
+}
+
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    /* background-color: aqua; */
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.main {
+    text-align: left;
+    /* background-color: pink; */
+    padding: 1rem;
+}
+
+.weatherInfo {
+    text-align: left;
+    /* background-color: brown; */
+    padding: 1rem;
+}
+
+.footer a {
+    text-decoration: none;
+    color: white;
+}
+
+currentWeather {}
+
+forecast {}
