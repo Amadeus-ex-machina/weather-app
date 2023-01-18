@@ -1,12 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;900&display=swap');
 
 body {
-    background-color: rgb(176, 223, 255);
+    background-color: rgb(172, 217, 255);
+    color: rgb(3, 4, 82);
     font-family: Roboto;
     margin: 0;
 
     /* Prevents footer from covering page content. */
     margin-bottom: 5rem;
+}
+
+.topBar {
+    background: linear-gradient(to right, rgb(100, 16, 255), rgb(25, 201, 255));
+    height: 1rem;
 }
 
 .header {
@@ -37,7 +43,7 @@ input {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: rgb(1, 85, 141);
+    background-color: rgb(10, 72, 165);
     text-align: center;
     height: 5rem;
 
@@ -53,7 +59,7 @@ input {
 .mainContainer {
     display: flex;
     justify-content: center;
-    /* background-color: aqua; */
+    /* background-color: rgb(163, 169, 255); */
     padding: 1rem;
     gap: 1rem;
 }
