@@ -55,9 +55,6 @@ async function requestWeather() {
     windSpeed = weatherData.wind.speed;
     weather = weatherData.weather[0].main;
 
-    // let windSpeed = 0;
-    // let weather = '';
-
     return weatherData;
 }
 
@@ -126,10 +123,21 @@ async function forecast() {
 }
 
 const btn = document.querySelector('#getWeatherButton');
+const form = document.querySelector('#weatherForm');
 
 // This was difficult, complicated way to make form work on enter.
-function forecastSubmit(e) {
+async function forecastSubmit(e) {
+    // Prevent multiple submit on button.
+    btn.disabled = true;
+
+    // Cancels the event.
     e.preventDefault();
+
+    // Validate form.
+    if (document.getElementById('cityNameInput').value == '') {
+        btn.disabled = false;
+        return;
+    }
 
     // Clear divs.
     while (main.firstChild) {
@@ -142,10 +150,12 @@ function forecastSubmit(e) {
 
     cityName = document.getElementById('cityNameInput').value;
     console.log(cityName);
-    forecast();
-}
+    await forecast();
+    form.reset();
 
-const form = document.getElementById('form');
+    // Reenable button after response returns.
+    btn.disabled = false;
+}
 
 form.addEventListener('submit', forecastSubmit);
 btn.addEventListener('click', forecastSubmit);
