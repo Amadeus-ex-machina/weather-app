@@ -7,29 +7,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    <title>weather-app</title>
+    <title>Weather</title>
 </head>
 
 <body>
     <div class="header">
-        <div class="topBar"></div>
-        <div class="headerTitle">Weather App</div>
+        <!-- <div class="topBar"></div> -->
+        <div class="headerTitle">Weather</div>
         <form id="weatherForm">
-            <input type="text" id="cityNameInput" name="cityName" placeholder="City, State" autofocus/>
+            <input type="text" id="cityNameInput" name="cityName" placeholder="City, State" autofocus />
             <input type="submit" hidden>
-            <button id="getWeatherButton">Get weather</button>
+            <button id="getWeatherButton">
+                <span class="material-icons md-18">search</span>
+            </button>
         </form>
     </div>
 
-    <div class="mainContainer">
-        <div class="main"></div>
-        <div class="weatherInfo"></div>
+    <div class="currWeatherContainer">
+        <div class="currWeatherInfoPrimary"></div>
+        <div class="currWeatherInfoSecondary"></div>
+        <!-- <div class="currWeatherInfoSecondaryVals"></div> -->
+
+        <!-- <table id="weatherTable">
+            <tr>
+                <td id="tempMin">d</td>
+                <td id="tempMinVal">d</td> 
+            </tr>
+            <tr>
+                <td id="tempMax">d</td>
+                <td id="tempMaxVal">d</td> 
+            </tr>
+        </table> -->
+
     </div>
 
-
-
     <div class="footer">
-        <a href="https://github.com/Amadeus-ex-machina">Amadeus Kang</a>
+        Created by <a href="https://github.com/Amadeus-ex-machina">Amadeus Kang</a>.
+        Powered by <a href="https://openweathermap.org/">OpenWeather</a>.
     </div>
 
     <script></script>

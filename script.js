@@ -1,8 +1,3 @@
-
-
-// Fix enter key to make submit box work.
-// Remove button.
-
 const apiKey = '1ed6d5923b682c3be47b72784d5242e9';
 
 let cityName = 'Seoul';
@@ -58,8 +53,8 @@ async function requestWeather() {
     return weatherData;
 }
 
-const main = document.querySelector('.main');
-const weatherInfo = document.querySelector('.weatherInfo');
+const currWeatherInfoPrimary = document.querySelector('.currWeatherInfoPrimary');
+const currWeatherInfoSecondary = document.querySelector('.currWeatherInfoSecondary');
 
 async function forecast() {
     // await requestCoords();
@@ -74,52 +69,67 @@ async function forecast() {
     let cityName = document.getElementById('cityNameInput').value;
     cityName = cityName.toUpperCase();
     cityDiv.textContent = cityName;
-    main.appendChild(cityDiv);
+    currWeatherInfoPrimary.appendChild(cityDiv);
 
     // Show temp.
     const tempDiv = document.createElement('div');
     tempDiv.classList.add('tempVal');
     tempDiv.textContent = Math.round(temp) + '°F';
-    main.appendChild(tempDiv);
+    currWeatherInfoPrimary.appendChild(tempDiv);
 
     // Show weather.
     const weatherDiv = document.createElement('div');
     weatherDiv.textContent = weather;
-    main.appendChild(weatherDiv);
+    currWeatherInfoPrimary.appendChild(weatherDiv);
 
 
     // SUPPLEMENTARY WEATHER INFO BELOW:
 
+    // const weatherTable = document.querySelector('#weatherTable');
+
+    // let tableTempMin = document.getElementById('tempMin');
+    // tableTempMin.textContent = 'Temp min: ';
+
+    // let tableTempMinVal = document.getElementById('tempMinVal');
+    // tableTempMinVal.textContent = Math.round(tempMin) + '°F';
+
+    // let tableTempMax = document.getElementById('tempMax');
+    // tableTempMax.textContent = 'Temp max: ';
+
+    // let tableTempMaxVal = document.getElementById('tempMaxVal');
+    // tableTempMaxVal.textContent = Math.round(tempMax) + '°F';
+    
+
+
     // Show temp max.
     const tempMaxDiv = document.createElement('div');
     tempMaxDiv.textContent = 'Temp max: ' + Math.round(tempMax) + '°F';
-    weatherInfo.appendChild(tempMaxDiv);
+    currWeatherInfoSecondary.appendChild(tempMaxDiv);
 
     // Show temp min.
     const tempMinDiv = document.createElement('div');
     tempMinDiv.textContent = 'Temp min: ' + Math.round(tempMin) + '°F';
-    weatherInfo.appendChild(tempMinDiv);
+    currWeatherInfoSecondary.appendChild(tempMinDiv);
 
     // Show feels like.
     const feelsLikeDiv = document.createElement('div');
     feelsLikeDiv.textContent = 'Feels like: ' + Math.round(feelsLike) + '°F';
-    weatherInfo.appendChild(feelsLikeDiv);
+    currWeatherInfoSecondary.appendChild(feelsLikeDiv);
 
     // Show windspeed.
     const windSpeedDiv = document.createElement('div');
     windSpeedDiv.textContent = 'Wind speed: ' + Math.round(windSpeed) + 'mph';
-    weatherInfo.appendChild(windSpeedDiv);
+    currWeatherInfoSecondary.appendChild(windSpeedDiv);
 
     // Show humidity.
     const humidityDiv = document.createElement('div');
     humidityDiv.textContent = 'Humidity: ' + humidity + '%';
-    weatherInfo.appendChild(humidityDiv);
+    currWeatherInfoSecondary.appendChild(humidityDiv);
 
     // Show pressure.
     const pressureDiv = document.createElement('div');
     pressureDiv.textContent = 'Pressure: ' + pressure + 'hPa';
-    weatherInfo.appendChild(pressureDiv);
-
+    currWeatherInfoSecondary.appendChild(pressureDiv);
 }
 
 const btn = document.querySelector('#getWeatherButton');
@@ -140,12 +150,12 @@ async function forecastSubmit(e) {
     }
 
     // Clear divs.
-    while (main.firstChild) {
-        main.removeChild(main.firstChild);
+    while (currWeatherInfoPrimary.firstChild) {
+        currWeatherInfoPrimary.removeChild(currWeatherInfoPrimary.firstChild);
     }
 
-    while (weatherInfo.firstChild) {
-        weatherInfo.removeChild(weatherInfo.firstChild);
+    while (currWeatherInfoSecondary.firstChild) {
+        currWeatherInfoSecondary.removeChild(currWeatherInfoSecondary.firstChild);
     }
 
     cityName = document.getElementById('cityNameInput').value;

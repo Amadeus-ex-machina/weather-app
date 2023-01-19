@@ -1,13 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 body {
-    background-color: rgb(172, 217, 255);
-    color: rgb(3, 4, 82);
-    font-family: Roboto;
+    background-color: rgb(97, 152, 255);
+    color: rgb(255, 255, 255);
     margin: 0;
 
     /* Prevents footer from covering page content. */
     margin-bottom: 5rem;
+}
+
+#getWeatherButton {
+}
+
+#weatherTable {
+    background-color: pink;
 }
 
 .topBar {
@@ -16,15 +25,18 @@ body {
 }
 
 .header {
-    /* background-color: green; */
+    background-color:rgb(47, 114, 238);
     text-align: center;
 }
 
 .headerTitle {
-    font-size: 60px;
-    text-align: center;
+    font-size: 2rem;
+    font-family: 'Roboto';
+    text-align: left;
     /* background-color: purple; */
+    background-color: rgb(12, 39, 80);
     padding: 1rem;
+    color: white;
 }
 
 .city {
@@ -36,44 +48,57 @@ input {
     border: none;
     margin: 1rem;
     padding: 1rem;
-    border-radius: 10px;
+    border-radius: 32px;
+    font-family: 'Open Sans';
 }
 
 .footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: rgb(10, 72, 165);
+    background-color: rgb(12, 39, 80);
+    color: rgb(111, 185, 255);
     text-align: center;
     height: 5rem;
 
     /* Problems here on zoom-in */
     line-height: 5rem;
     overflow: hidden;
+
+    font-family: 'Open Sans';
 }
 
 .tempVal {
     font-size: 72px;
 }
 
-.mainContainer {
+.currWeatherContainer {
     display: flex;
     justify-content: center;
-    /* background-color: rgb(163, 169, 255); */
+    background-color: rgb(44, 80, 201);
     padding: 1rem;
     gap: 1rem;
+    font-family: 'Roboto';
+
 }
 
-.main {
+.currWeatherInfoPrimary {
     text-align: left;
     /* background-color: pink; */
     padding: 1rem;
 }
 
-.weatherInfo {
+.currWeatherInfoSecondary {
     text-align: left;
     /* background-color: brown; */
     padding: 1rem;
+    font-family: 'Open Sans';
+}
+
+.currWeatherInfoSecondaryVals {
+    text-align: right;
+    padding: 1rem;
+    font-family: 'Open Sans';
 }
 
 .footer a {
