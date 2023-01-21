@@ -1,3 +1,5 @@
+import './style.css';
+
 const apiKey = '1ed6d5923b682c3be47b72784d5242e9';
 let limit = 5;
 
@@ -13,6 +15,8 @@ const currWeatherInfoSecondary = document.querySelector('.currWeatherInfoSeconda
 let geocodeUrl = () => `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=${limit}&appid=${apiKey}`;
 // Returns url for requesting weather data.
 let weatherUrl = (coords) => `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${apiKey}&units=${units}`;
+
+let cityName;
 
 // Request geographic coordinates from API.
 async function requestCoords() {
