@@ -29,8 +29,8 @@ async function requestWeather(coords) {
     return data;
 }
 
-// Request current weather.
-async function forecast() {
+// Request and display current weather.
+async function displayWeather() {
     const coords = await requestCoords();
     const weatherData = await requestWeather(coords);
 
@@ -88,14 +88,16 @@ async function forecast() {
 
 // Submits and displays forecast on enter key press or button.
 async function forecastSubmit(e) {
+    cityName = document.getElementById('cityNameInput').value;
+
     // Prevent multiple submit on button.
     btn.disabled = true;
 
     // Cancels the event.
     e.preventDefault();
 
-    // Do nothing if form is empty.
-    if (document.getElementById('cityNameInput').value == '') {
+    // Do nothing if cityName is empty.
+    if (cityName == '') {
         btn.disabled = false;
         return;
     }
@@ -108,8 +110,7 @@ async function forecastSubmit(e) {
         currWeatherInfoSecondary.removeChild(currWeatherInfoSecondary.firstChild);
     }
 
-    cityName = document.getElementById('cityNameInput').value;
-    await forecast();
+    await displayWeather();
     form.reset();
 
     // Reenable button after response returns.
